@@ -1,0 +1,79 @@
+.slideshow-container {
+  position: relative;
+  margin: 10px;
+  max-height: 230px;
+  overflow: hidden;
+}
+.mySlides {
+  display: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 5px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.dot-container {
+  text-align: center;
+  padding: 10px;
+}
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active {
+  background-color: #717171;
+}
+.data-container {
+  display: none;
+}
+.show{
+  display: block;
+}
+#div1 {
+  background-color: #3498db;
+  width: 48%;
+  height: 200px;
+  display: inline-block;
+  margin: 10px;
+}
+#div2 {
+  background-color: orange;
+  width: 48%;
+  height: 200px;
+  display: inline-block;
+  margin: 10px;
+}
+.course_dialoguBox{
+  text-align: center;
+}
+input[type="radio"] {
+  display: none;
+}
+.custom-radio {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #3498db;
+ /* Default border color */
+  border-radius: 20px;
+}

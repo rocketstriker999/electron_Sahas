@@ -1,1 +1,64 @@
-<h1>Dashboard</h1>
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Dashboard dummy</title>
+      <!--Common CSS-->
+      <link rel="stylesheet" type="text/css" href="../css/common.css">
+      <!--Page Specific CSS-->
+      <link rel="stylesheet" type="text/css" href="../css/dashBoard.css">
+      <!--Font Awesome CSS-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <!--File Speicifc JS-->
+      <script type="module" src="../js/helper.js"></script>
+      <script type="module" src="../js/dashBoard.js"></script>
+   </head>
+   <body>
+      <div>
+         <div class="slideshow-container">
+            <!-- Slides -->
+            <div class="mySlides">
+               <img src="D:\Github\electron_Sahas\assets\img\WhatsApp Image 2023-11-26 at 2.57.23 PM.jpeg" style="width:100%">
+            </div>
+            <div class="mySlides">
+               <img src="D:\Github\electron_Sahas\assets\img\WhatsApp Image 2023-11-26 at 2.58.25 PM.jpeg" style="width:100%">
+            </div>
+            <div class="mySlides">
+               <img src="D:\Github\electron_Sahas\assets\img\WhatsApp Image 2023-11-26 at 3.01.11 PM.jpeg" style="width:100%">
+            </div>
+            <!-- Navigation arrows -->
+            <a class="prev" id="prevs">&#10094;</a>
+            <a class="next" id="nexts">&#10095;</a>
+         </div>
+         <!-- Dot indicators -->
+         <div class="dot-container">
+            <span class="dot" id="currentSlide(1)"></span>
+            <span class="dot" id="currentSlide(2)"></span>
+            <span class="dot" id="currentSlide(3)"></span>
+         </div>
+         <div class="course_dialoguBox">
+            <div>
+               <label class="custom-radio">
+               <input type="radio" name="radioGroup" id="allCoursesRadio"> All Courses
+               </label>
+               <label class="custom-radio">
+               <input type="radio" name="radioGroup" id="myCoursesRadio"> My Courses
+               </label>
+            </div>
+            <div>
+               <div id="allCoursesData" class="data-container show">
+                  <div id="div1"></div>
+                  <div id="div1"></div>
+                  <div id="div1"></div>
+                  <div id="div1"></div>
+               </div>
+               <div id="myCoursesRadioData" class="data-container">
+                  <div id="div2"></div>
+                  <div id="div2"></div>
+                  <div id="div2"></div>
+                  <div id="div2"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
