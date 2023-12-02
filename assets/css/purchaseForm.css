@@ -1,0 +1,96 @@
+.container_purchaseForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 2rem;
+}
+
+
+.container_info{
+    padding: 2rem;
+    width: 28rem;
+}
+
+.container_info *{
+    float: right;
+    clear: right;
+}
+
+.logo_sahas{
+    width: 18rem;
+    height: auto;
+}
+
+.edittext{
+    display: block;
+    width: 100%;
+    height: 50px
+}
+.container_referCodetext{
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+.container_credentials{
+    width: 50rem;
+}
+
+.btn_purple{
+    width: 100%;
+}
+
+.btn_pink{
+    width: 100%;
+}
+
+
+
+.container_details {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+.error{
+    display: none;
+}
+
+
+.purchaseForm-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10%;
+}
+.purchaseForm-image{
+    margin-right: 6%;
+}
+.coursePrice{
+    font-size: 1.5rem;
+    padding-top: 6%;
+    font-weight: bold;
+}
+.totalPrice{
+    padding-top: 3%;
+    font-size: 1.2rem;
+}
+.btnPurchase{
+    width: 15%;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 15PX;
+    background-color: #df4963;
+}
+.btnCancel{
+    width: 15%;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 15PX;   
+}
+.btnDiv{
+    display: flex;
+    justify-content: center;
+}

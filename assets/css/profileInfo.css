@@ -1,0 +1,82 @@
+.container_profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 2rem;
+}
+.profile-photo-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.edittext{
+    display: block;
+    width: 100%;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10%;
+}
+.profile_Device_details{
+    display: inline-block;
+    align-items: center;
+
+}
+/* .container_credentials{
+    width: 30rem;
+} */
+
+.btn_purple{
+    width: 32%;
+    border-radius: 15px;
+    padding: 10px 16px;
+}
+
+.container_device{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+.error{
+    display: none;
+}
+
+#container {
+    position: relative;
+}
+
+#label {
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    padding: 4px;
+    width: auto;
+    background-color: #FAFAFA;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 0px;
+    color: grey;
+    font-weight: bold;
+}
+.icon_edittext {
+    left: 0px;
+}
+.btnApplyDetails{
+    text-align: center;
+}
+.btnWallet{
+    text-align: right;
+}
+
+.icon_edit{
+    right: 10px;
+    position: absolute;
+    color: #673AB7;
+}

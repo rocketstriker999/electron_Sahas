@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Purchase Form</title>
+    <!--Common CSS-->
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <!--Page Specific CSS-->
+    <link rel="stylesheet" type="text/css" href="../css/purchaseForm.css">
+     <!--Font Awesome CSS-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!--File Speicifc JS-->
+    <script type="module" src="../js/helper.js"></script>
+    <script type="module" src="../js/purchaseForm.js"></script>
+
+</head>
+
+<body>
+    <div class="container_purchaseForm">
+        <div class = "container_credentials card">
+            <div class="purchaseForm-header">
+                <div class="purchaseForm-image">
+                   <img src="D:\Github\electron_Sahas\assets\img\download.png" alt="Profile Picture" class="profile-photo">
+                </div>
+                <div class="purchaseForm_details">
+                   <div class="container_details margin_top">
+                      <p style="font-size: 1.5rem;font-weight: bold;">Purchase Form</p>
+                   </div>
+                   <div class="container_details margin_top">
+                    <p style="font-size: 1rem;">There are two main purchasing forms the Purchase Requisition and the Purchase Order. Both are standard forms that are used within a large company used to enable the efficient functioning of the purchasing department.</p>
+                   </div>
+                </div>
+             </div>
+           <div>
+            <div class="container_referCodetext margin_top">
+                <i class="icon_edittext fas fa-user-friends"></i>
+                <input class="edittext" type="password" id="ETX_PASSWORD" maxlength="16" placeholder="Refer Code ( Optional )" required/>
+             </div>
+            <button id="BTN_APPLYPROMOCODE" class="btn_purple margin_top" type="submit">Appy Promo Code</button>
+           </div>
+
+
+           <div class="abc">
+            <p class="coursePrice">Course Price : 250000rs</p>
+           </div>
+           <div class="divider margin_top"></div>
+           <div class="abc">
+            <p class="totalPrice">To pay : 250000rs</p>
+           </div>
+           <div class="btnDiv">
+           <button id="BTN_CANCEL" class="btnCancel btn_purple margin_top" type="submit">Cancel</button>
+           <button id="BTN_PURCHASE" class="btnPurchase btn_purple margin_top" type="submit">Purchase</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+</html>

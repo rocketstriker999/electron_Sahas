@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Login</title>
+      <!--Common CSS-->
+      <link rel="stylesheet" type="text/css" href="../css/common.css">
+      <!--Page Specific CSS-->
+      <link rel="stylesheet" type="text/css" href="../css/profileInfo.css">
+      <!--Font Awesome CSS-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <!--File Speicifc JS-->
+      <script type="module" src="../js/helper.js"></script>
+      <script type="module" src="../js/profileInfo.js"></script>
+   </head>
+   <body>
+      <div class="container_profile">
+         <div class = "container_credentials card">
+            <h4 class="title_secondary">Profile</h4>
+            <br>
+            <br>
+            <div class="profile-header">
+               <div class="profile-photo-container">
+                  <img src="D:\Github\electron_Sahas\assets\img\download.jpg" alt="Profile Picture" class="profile-photo">
+               </div>
+               <div class="profile_Device_details">
+                  <div class="container_device margin_top">
+                     <img src = "../img/device.png" alt="Device"/>
+                     <p id="DEVICE_ID">Your Device Id : 75daw2423</p>
+                  </div>
+                  <div class="container_device margin_top">
+                     <img src = "../img/device.png" alt="Device"/>
+                     <p id="EMAIL_ID">abhishek.jadav@gmail.com</p>
+                  </div>
+               </div>
+            </div>
+            <form>
+               <div id="container" class="margin_top">
+                  <div id="label">Name</div>
+                  <i class="icon_edittext fas fa-user"></i>
+                  <p class="edittext" type="text" id="ETX_USERNAME">Abhishek
+                  <i class="icon_edit fas fa-pencil" aria-hidden="true"></i>
+               </div>
+               <div id="container" class="margin_top">
+                  <div id="label">Phone</div>
+                  <i class="icon_edittext fas fa-phone"></i>
+                  <p class="edittext" type="text" id="ETX_PHONE">9429279966
+                  <i class="icon_edit fas fa-pencil" aria-hidden="true"></i>
+               </div>
+               <div id="container" class="margin_top">
+                  <div id="label">Password</div>
+                  <i class="icon_edittext fas fa-lock"></i>
+                  <p class="edittext" type="password" id="ETX_PASSWORD">********
+                  <i class="icon_edit fas fa-eye" aria-hidden="true"></i>
+               </div>
+                <div class="btnApplyDetails">
+                    <button id="BTN_APPLYDETAILS" class="btn_purple margin_top" type="submit">Apply Details</button>
+                </div>
+            <br>
+                <div id="container" class="margin_top">
+                  <div id="label">Wallet</div>
+                  <i class="icon_edittext fas fa-wallet"></i>
+                  <p class="edittext" type="password" id="ETX_PASSWORD">1700
+                  <i class="icon_edit fas fa-plus" aria-hidden="true"></i>
+               </div>
+               <div class="btnWallet">
+                <button id="BTN_WALLET" class="btn_purple margin_top" type="submit">Wallet</button>
+            </div>
+               
+            </form>
+         </div>
+      </div>
+   </body>
+</html>
