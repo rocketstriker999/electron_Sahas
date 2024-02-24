@@ -47,7 +47,7 @@ electronApp.on("ready", () => {
   //load initial template
   electronApp.window.loadURL(`file://${__dirname}/assets/html/splash.html?version=${configuration.version}`);
   //Open Dev Tools , Remove Below Line While Production
-  //electronApp.window.webContents.openDevTools();
+  electronApp.window.webContents.openDevTools();
   //Disable Right Click Due to Youtube Video Privacy
   electronApp.window.on("system-context-menu", (event, _point) => event.preventDefault());
   //check for update

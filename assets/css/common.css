@@ -63,17 +63,10 @@ input {
 
 .center_horizontal{
     text-align: center;
-    display: inline-block;
     margin: 0 auto;
 }
 
-.select_option{
-    padding: 0.4rem 0 0.4rem 1rem;
-    font-weight: bold;
-    background-color: #FAFAFA;
-    border-radius: 4px;
-    border: 1px solid #BDBDBD;
-}
+
 .edittext{
     padding: 0.8rem 0 0.8rem 2.5rem;
     background-color: #FAFAFA;
@@ -112,15 +105,42 @@ input {
     margin-top: 2px;
 }
 
-.container_select{
-    position: relative;
+
+.container_input {
     text-align: left;
 }
 
-.container_edittext {
-    position: relative;
-    text-align: left;
+.container_select{
+    padding: 0.8rem;
+    background-color: #FAFAFA;
+    border-radius: 4px;
+    border: 1px solid #BDBDBD;
+    display: flex;
+    align-items:center;
+    justify-content: center;
 }
+
+.container_select label{
+    margin-left: 0.8rem;
+    font-weight: bold;
+    color:#999;
+    flex: 1;
+
+}  
+
+.container_select i{
+    color: #3F51B5;
+}
+
+.container_select select{
+    Border: none;
+    background-color: transparent;
+}
+
+.container_select option{
+    padding:1rem;
+}
+ 
 
 
 .title_primary{

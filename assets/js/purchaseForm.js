@@ -126,27 +126,27 @@ purchaseHandler.requestForHash = (currentUser) => {
             <input type="hidden" name="udf2" value="${purchaseHandler.etxCoupon.value}" />
 
 
-            <div class="container_edittext margin_top">
+            <div class="container_input margin_top">
                 <i class="icon_edittext fa-brands fa-product-hunt" aria-hidden="true"></i>
                 <input class="edittext edittext_disable" value="${purchaseHandler.course.std_name}" readonly  required/>
             </div>
 
-            <div class="container_edittext margin_top">
+            <div class="container_input margin_top">
                 <i class="icon_edittext fa-solid fa-indian-rupee-sign" aria-hidden="true"></i>
                 <input class="edittext edittext_disable" name="amount" value="${purchaseHandler.course.pricePay}" readonly  required/>
             </div>
 
-            <div class="container_edittext margin_top">
+            <div class="container_input margin_top">
                 <i class="icon_edittext fas fa-envelope" aria-hidden="true"></i>
                 <input class="edittext edittext_disable" name="email" value="${currentUser.user_email}" readonly  required/>
             </div>
 
-            <div class="container_edittext margin_top">
+            <div class="container_input margin_top">
                 <i class="icon_edittext fas fa-user" aria-hidden="true"></i>
                 <input class="edittext edittext_disable" name="firstname" value="${currentUser.user_name}" readonly required />
             </div>
 
-            <div class="container_edittext margin_top">
+            <div class="container_input margin_top">
                 <i class="icon_edittext fa fa-phone" aria-hidden="true"></i>
                 <input class="edittext" name="phone" type="tel" maxlength="10" placeholder="Phone number" pattern="[789][0-9]{9}" oninvalid="this.setCustomValidity('Invlid Phone Number')"  required/>
             </div>

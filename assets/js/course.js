@@ -14,7 +14,7 @@ courseHandler.containerTabs = document.querySelectorAll('.tab');
 courseHandler.containerDemo = document.getElementById("CONTAINER_DEMO");
 courseHandler.btnCloseDemo = document.getElementById("BTN_CLOSE_SHEET");
 courseHandler.containerDemoData = document.getElementById("CONTAINER_DEMO_DATA");
-courseHandler.modalAdditionalDetails = document.getElementById("MODAL_ADDITIONAL_DETILS");
+courseHandler.containerAdditionalDetails = document.getElementById("CONTAINER_ADDITIONAL_DETILS");
 
 
 //extract and generate get object passed from dashboard
@@ -245,7 +245,7 @@ window.electron.getCurrentUser((currentUser) => {
             courseHandler.btnPurchaseCourse.addEventListener("click", () => courseHandler.downloadPurchaseReceipt(jsonResponse.purchaseData[0].receipt));
             //If course is purchased then check for additional Information
             if(currentUser.user_secondary_phone =='' || currentUser.user_address == ''){
-                courseHandler.modalAdditionalDetails.style.display = 'block';
+                courseHandler.containerAdditionalDetails.style.display = 'block';
                 courseHandler.SecondaryPhone.value = currentUser.user_secondary_phone;
                 courseHandler.Address.value = currentUser.user_address;
 

@@ -59,10 +59,10 @@
     background-color: #FAFAFA;
 }
 
-.modal_additional_details {
+.container_additional_details {
     display: none;
     z-index: 1;
-    width: 24%;
+    width: 28rem;
     height: auto;
     padding: 1rem;
     margin: 5% auto;
@@ -84,10 +84,4 @@
 .logo_form{
     width: 8rem;
     height: auto;
-}
-
-.container_select{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
 }
