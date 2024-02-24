@@ -67,6 +67,13 @@ input {
     margin: 0 auto;
 }
 
+.select_option{
+    padding: 0.4rem 0 0.4rem 1rem;
+    font-weight: bold;
+    background-color: #FAFAFA;
+    border-radius: 4px;
+    border: 1px solid #BDBDBD;
+}
 .edittext{
     padding: 0.8rem 0 0.8rem 2.5rem;
     background-color: #FAFAFA;
@@ -105,6 +112,10 @@ input {
     margin-top: 2px;
 }
 
+.container_select{
+    position: relative;
+    text-align: left;
+}
 
 .container_edittext {
     position: relative;

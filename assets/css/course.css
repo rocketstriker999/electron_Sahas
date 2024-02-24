@@ -1,10 +1,10 @@
-.container_root{
+.container_root {
     display: flex;
     height: 100vh;
     flex-direction: column;
 }
 
-.container_subjects{
+.container_subjects {
     flex: 1;
     overflow-y: scroll;
 }
@@ -29,8 +29,8 @@
     color: #E91E63;
 }
 
-.btn_demo{
-    margin:1rem
+.btn_demo {
+    margin: 1rem
 }
 
 .course_purchase_info {
@@ -53,13 +53,41 @@
     flex-direction: column;
 }
 
-.container_demo_data{
+.container_demo_data {
     flex: 1;
     overflow-y: scroll;
     background-color: #FAFAFA;
 }
 
+.modal_additional_details {
+    display: none;
+    z-index: 1;
+    width: 24%;
+    height: auto;
+    padding: 1rem;
+    margin: 5% auto;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
 
+.edittext {
+    width: 100%;
+}
 
+.container_additional_details_header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.logo_form{
+    width: 8rem;
+    height: auto;
+}
 
+.container_select{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}

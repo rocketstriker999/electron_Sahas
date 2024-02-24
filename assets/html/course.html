@@ -50,6 +50,67 @@
         <p class="title_secondary padding_2">Subjects</p>
         <div id="CONTAINER_SUBJECTS" class="container_subjects"></div>
     </div>
+    <!-- Modal Additional Details -->
+    <div id="MODAL_ADDITIONAL_DETILS" class="modal_additional_details card">        
+        
+            <div class="container_additional_details_header">                
+                <img class="logo_form" src="../img/material_form.png" alt="Sahas" />                
+                <div class="detailsContent">
+                    <p class="text_normal">Details Required</p>
+                    <p class="margin_top">Sahas collects some of the information from user who want
+                        to purchase the course, this information are collected in order to serve other users better
+                        in future</p>
+                </div>
+            </div>
+            <div class="container_credentials">
+
+                <div class="container_edittext margin_top">
+                    <i class="icon_edittext fas fa-user"></i>
+                    <input class="edittext" type="text" id="ETX_USERNAME" maxlength="22" placeholder="Full Name"
+                        required />
+                    <p id="VALIDATION_USERNAME" class="error"></p>
+                </div>
+                <div id="COUNTER_USERNAME" class="character_counter">0 / 22 characters</div>
+
+                <div class="container_edittext edittext margin_top">
+                    <label for="SELECT_BRANCH" class="text_normal">Sahas Branch</label>
+                    <select class="" id="SELECT_BRANCH">
+                        <option class="text_normal">Waghodia Road</option>
+                        <option class="text_normal">Sangam - Karelibaug</option>
+                        <option class="text_normal">Sayajigunj</option>
+                    </select>
+                </div>
+
+                <div class="container_edittext margin_top">
+                    <i class="icon_edittext fa fa-phone" aria-hidden="true"></i>
+                    <input class="edittext" type="tel" id="ETX_PHONE" maxlength="10" placeholder="Phone number"
+                        required />
+                    <p id="VALIDATION_PHONE" class="error"></p>
+                </div>
+                <div id="COUNTER_PHONE" class="character_counter">0 / 10 characters</div>
+                
+                <div class="container_edittext margin_top">
+                    <i class="icon_edittext fa fa-phone" aria-hidden="true"></i>
+                    <input class="edittext" type="tel" id="ETX_SECONDARYPHONE" maxlength="10" placeholder="Secondary Phone number"
+                        required />
+                    <p id="VALIDATION_PHONE" class="error"></p>
+                </div>
+                <div id="COUNTER_SECONDARYPHONE" class="character_counter">0 / 10 characters</div>
+
+                <div class="container_edittext margin_top">
+                    <i class="icon_edittext fas fa-user"></i>
+                    <textarea class="edittext" id="ETX_ADDRESS" name="address" placeholder="Address / Location"
+                        required></textarea>
+                    <p id="VALIDATION_ADDRESS" class="error"></p>
+                </div>
+                <div id="COUNTER_ADDRESS" class="character_counter">0 / 98 characters</div>
+
+                <div class="divider margin_top"></div>
+                <button id="BTN_UPDATE_DETAILS" class="btn_pink margin_top">Update Details</button>
+
+            </div>
+        
+    </div>
 
 </body>
 
