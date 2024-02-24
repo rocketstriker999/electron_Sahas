@@ -50,67 +50,65 @@
         <p class="title_secondary padding_2">Subjects</p>
         <div id="CONTAINER_SUBJECTS" class="container_subjects"></div>
     </div>
-    <!-- Modal Additional Details -->
-    <div id="CONTAINER_ADDITIONAL_DETILS" class="container_additional_details card">
 
-        <div class="container_additional_details_header">
-            <img class="logo_form" src="../img/material_form.png" alt="Sahas" />
-            <div class="detailsContent">
-                <p class="text_normal bold margin_top">Details Required</p>
-                <p class="margin_top">Sahas collects some of the information from user who want
-                    to purchase the course, this information are collected in order to serve other users better
-                    in future</p>
+    <!-- Modal Additional Details -->
+    <div id="CONTAINER_ADDITIONAL_DETAILS" class="container_additional_details">
+        <div class="container_additional_details_content card">
+            <div class="container_additional_details_header">
+                <img class="logo_form" src="../img/material_form.png" alt="Sahas" />
+                <div class="detailsContent">
+                    <p class="text_normal bold margin_top">Details Required</p>
+                    <p class="margin_top">Sahas collects some of the information from user who want
+                        to purchase the course, this information are collected in order to serve other users better
+                        in future</p>
+                </div>
+            </div>
+
+            <div id="CONTAINER_ETX_USERNAME" class="container_input margin_top">
+                <i class="icon_edittext fas fa-user"></i>
+                <input class="edittext" type="text" id="ETX_USERNAME" maxlength="22" placeholder="Full Name" required />
+                <p id="VALIDATION_USERNAME" class="error"></p>
+            </div>
+            <div id="COUNTER_USERNAME" class="character_counter">0 / 22 characters</div>
+
+            <div id="CONTAINER_SELECT_BRANCH" class="container_select margin_top">
+                <i class="icon_select fas fa-landmark"></i>
+                <label for="SELECT_BRANCH">Branch</label>
+                <select id="SELECT_BRANCH">
+                    <option value="Waghodia Road">Waghodia Road</option>
+                    <option value="Sangam - Karelibaug">Sangam - Karelibaug</option>
+                    <option value="Sayajigunj">Sayajigunj</option>
+                </select>
+            </div>
+
+            <div id="CONTAINER_ETX_PHONE" class="container_input margin_top">
+                <i class="icon_edittext fa fa-phone" aria-hidden="true"></i>
+                <input class="edittext" type="tel" id="ETX_PHONE" maxlength="10" placeholder="Phone number" required />
+                <p id="VALIDATION_PHONE" class="error"></p>
+            </div>
+            <div id="COUNTER_PHONE" class="character_counter">0 / 10 characters</div>
+
+            <div id="CONTAINER_ETX_SECONDARY_PHONE" class="container_input margin_top">
+                <i class="icon_edittext fa fa-phone" aria-hidden="true"></i>
+                <input class="edittext" type="tel" id="ETX_SECONDARY_PHONE" maxlength="10"
+                    placeholder="Secondary Phone number" required />
+                <p id="VALIDATION_SECONDARY_PHONE" class="error"></p>
+            </div>
+            <div id="COUNTER_SECONDARYPHONE" class="character_counter">0 / 10 characters</div>
+
+            <div id="CONTAINER_ETX_ADDRESS" class="container_input margin_top">
+                <i class="icon_edittext fas fa-user"></i>
+                <textarea class="edittext" id="ETX_ADDRESS" name="address" placeholder="Address / Location"
+                    required></textarea>
+                <p id="VALIDATION_ADDRESS" class="error"></p>
+            </div>
+            <div id="COUNTER_ADDRESS" class="character_counter">0 / 98 characters</div>
+
+            <div class="center_horizontal">
+                <button id="BTN_UPDATE_DETAILS" class="btn_pink margin_top">Update</button>
+                <button id="BTN_CLOSE_MODAL" class="btn_purple margin_top">Close</button>
             </div>
         </div>
-
-
-        <div class="container_input margin_top">
-            <i class="icon_edittext fas fa-user"></i>
-            <input class="edittext" type="text" id="ETX_USERNAME" maxlength="22" placeholder="Full Name" required />
-            <p id="VALIDATION_USERNAME" class="error"></p>
-        </div>
-        <div id="COUNTER_USERNAME" class="character_counter">0 / 22 characters</div>
-
-        <div class="container_select margin_top">
-            <i class="icon_select fas fa-user"></i>
-            <label for="SELECT_BRANCH">Branch</label>
-            <select id="SELECT_BRANCH">
-                <option value="Waghodia Road">Waghodia Road</option>
-                <option value="Sangam - Karelibaug">Sangam - Karelibaug</option>
-                <option value="Sayajigunj">Sayajigunj</option>
-            </select>
-        </div>
-
-        <div class="container_input margin_top">
-            <i class="icon_edittext fa fa-phone" aria-hidden="true"></i>
-            <input class="edittext" type="tel" id="ETX_PHONE" maxlength="10" placeholder="Phone number" required />
-            <p id="VALIDATION_PHONE" class="error"></p>
-        </div>
-        <div id="COUNTER_PHONE" class="character_counter">0 / 10 characters</div>
-
-        <div class="container_input margin_top">
-            <i class="icon_edittext fa fa-phone" aria-hidden="true"></i>
-            <input class="edittext" type="tel" id="ETX_SECONDARYPHONE" maxlength="10"
-                placeholder="Secondary Phone number" required />
-            <p id="VALIDATION_PHONE" class="error"></p>
-        </div>
-        <div id="COUNTER_SECONDARYPHONE" class="character_counter">0 / 10 characters</div>
-
-        <div class="container_input margin_top">
-            <i class="icon_edittext fas fa-user"></i>
-            <textarea class="edittext" id="ETX_ADDRESS" name="address" placeholder="Address / Location"
-                required></textarea>
-            <p id="VALIDATION_ADDRESS" class="error"></p>
-        </div>
-        <div id="COUNTER_ADDRESS" class="character_counter">0 / 98 characters</div>
-
-        <div class="center_horizontal">
-            <button id="BTN_UPDATE_DETAILS" class="btn_pink margin_top">Update</button>
-            <button id="BTN_CLOSE_MODAL" class="btn_purple margin_top">Close</button>
-        </div>
-
-
-
     </div>
 
 </body>

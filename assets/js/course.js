@@ -13,8 +13,30 @@ courseHandler.btnPurchaseCourse = document.getElementById("BTN_BUY");
 courseHandler.containerTabs = document.querySelectorAll('.tab');
 courseHandler.containerDemo = document.getElementById("CONTAINER_DEMO");
 courseHandler.btnCloseDemo = document.getElementById("BTN_CLOSE_SHEET");
+courseHandler.btnCloseModal = document.getElementById("BTN_CLOSE_MODAL");
 courseHandler.containerDemoData = document.getElementById("CONTAINER_DEMO_DATA");
-courseHandler.containerAdditionalDetails = document.getElementById("CONTAINER_ADDITIONAL_DETILS");
+courseHandler.containerAdditionalDetails = document.getElementById("CONTAINER_ADDITIONAL_DETAILS");
+courseHandler.btnUpdateDetails = document.getElementById("BTN_UPDATE_DETAILS");
+courseHandler.counterUserName = document.getElementById("COUNTER_USERNAME");
+courseHandler.counterAddress = document.getElementById("COUNTER_ADDRESS");
+courseHandler.counterPhone = document.getElementById("COUNTER_PHONE");
+courseHandler.counterSecondaryPhone = document.getElementById("COUNTER_SECONDARYPHONE");
+courseHandler.Phone = document.getElementById("ETX_PHONE");
+courseHandler.secondaryPhone = document.getElementById("ETX_SECONDARY_PHONE");
+courseHandler.Address = document.getElementById("ETX_ADDRESS");
+courseHandler.Username = document.getElementById("ETX_USERNAME");
+courseHandler.Branch = document.getElementById("SELECT_BRANCH");
+courseHandler.validationPhone = document.getElementById('VALIDATION_PHONE');
+courseHandler.validationSecondaryPhone = document.getElementById('VALIDATION_SECONDARY_PHONE');
+courseHandler.validationAddress = document.getElementById('VALIDATION_ADDRESS');
+courseHandler.validationUsername = document.getElementById('VALIDATION_USERNAME');
+
+
+courseHandler.containerPhone = document.getElementById("CONTAINER_ETX_PHONE");
+courseHandler.containerSecondaryPhone = document.getElementById("CONTAINER_ETX_SECONDARY_PHONE");
+courseHandler.containerAddress = document.getElementById("CONTAINER_ETX_ADDRESS");
+courseHandler.containerUsername = document.getElementById("CONTAINER_ETX_USERNAME");
+courseHandler.containerBranch = document.getElementById("CONTAINER_SELECT_BRANCH");
 
 
 //extract and generate get object passed from dashboard
@@ -33,6 +55,114 @@ courseHandler.courseSubjects.innerHTML = `${courseHandler.course.sub_count} Subj
 //Back Button Click
 courseHandler.btnBack.addEventListener("click", (e) => {
     window.electron.back();
+});
+
+//Back Button Click
+courseHandler.btnCloseModal.addEventListener("click", (e) => {
+    courseHandler.containerAdditionalDetails.style.display = 'none';
+});
+
+courseHandler.Username.addEventListener("input", (e) => {
+    courseHandler.counterUserName.innerText = e.target.value.length + " / 22 characters";
+});
+
+courseHandler.Address.addEventListener("input", (e) => {
+    courseHandler.counterAddress.innerText = e.target.value.length + " / 148 characters";
+});
+
+courseHandler.Phone.addEventListener("input", (e) => {
+    courseHandler.counterPhone.innerText = e.target.value.length + " / 10 characters";
+});
+
+courseHandler.secondaryPhone.addEventListener("input", (e) => {
+    courseHandler.counterSecondaryPhone.innerText = e.target.value.length + " / 10 characters";
+});
+
+//Update Details Required Modal Feild Validation
+courseHandler.validateInputs = () => {
+    window.electron.getCurrentUser((currentUser) => {
+        // Reset previous validation messages
+        courseHandler.validationUsername.style.display = "none";
+        courseHandler.validationAddress.style.display = "none";
+        courseHandler.validationPhone.style.display = "none";
+        courseHandler.validationSecondaryPhone.style.display = "none";
+
+        courseHandler.Username.classList.remove('invalid_edittext');
+        courseHandler.Address.classList.remove('invalid_edittext');
+        courseHandler.Phone.classList.remove('invalid_edittext');
+        courseHandler.secondaryPhone.classList.remove('invalid_edittext');
+
+
+        if (courseHandler.Username.value) {
+            if (currentUser.user_name == courseHandler.Username.value || courseHandler.Username.value.length == 0) {
+                return true;
+            }
+            else if (courseHandler.Username.value.length < 3) {
+                courseHandler.setInputError('Please enter Valid Username', courseHandler.validationUsername, courseHandler.Username)
+                return false;
+            }
+        }
+        if (courseHandler.Phone.value) {
+            if (currentUser.user_phone == courseHandler.Phone.value || courseHandler.Phone.value.length == 0) {
+                return true;
+            }
+            else if (courseHandler.Phone.value.length < 10) {
+                courseHandler.setInputError('Please enter valid phone number', courseHandler.validationPhone, courseHandler.Phone);
+                return false;
+            }
+        }
+        if (courseHandler.secondaryPhone.value) {
+            if (currentUser.user_secondary_phone == courseHandler.secondaryPhone.value || courseHandler.secondaryPhone.value.length == 0) {
+                return true;
+            }
+            else if (courseHandler.secondaryPhone.value.length < 10) {
+                courseHandler.setInputError('Please enter valid secondary phone number', courseHandler.validationSecondaryPhone, courseHandler.secondaryPhone);
+                return false;
+            }
+        }
+        if (courseHandler.Address.value) {
+            if (currentUser.user_address == courseHandler.Address.value || courseHandler.Address.value.length == 0) {
+                return true;
+            }
+            else if (!/^[a-zA-Z0-9\s,.'-]+$/.test(courseHandler.Address.value)) {
+                courseHandler.setInputError('Please enter Valid Address', courseHandler.validationAddress, courseHandler.Address)
+                return false;
+            }
+        }
+
+    });
+    return true;
+}
+courseHandler.setInputError = (error, validationArea, invalid_USERNAME_PHONE_ADDRESS) => {
+    validationArea.innerHTML = error;
+    validationArea.style.display = 'block'
+    invalid_USERNAME_PHONE_ADDRESS.classList.add('invalid_edittext')
+}
+
+//Update Details Required Button
+courseHandler.btnUpdateDetails.addEventListener("click", (e) => {
+    window.electron.getCurrentUser((currentUser) => {
+        if (courseHandler.validateInputs()) {
+            requestHelper.requestServer({
+                requestPath: "userUpdateProfile.php", requestMethod: "POST", requestPostBody: {
+                    user_email: currentUser.user_email,
+                    user_name: courseHandler.Username.value,
+                    user_phone: courseHandler.Phone.value,
+                    user_secondary_phone: courseHandler.secondaryPhone.value,
+                    user_address: courseHandler.Address.value,
+                }
+            }).then(response => response.json()).then(jsonResponse => {
+                console.log(jsonResponse);
+                if (jsonResponse.isTaskSuccess == 'true') {
+                    //save into current app memory
+                    window.electron.setCurrentUser(jsonResponse.userAccData);
+                    courseHandler.containerAdditionalDetails.style.display = 'none';
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+    });
 });
 
 //Tab click Handler
@@ -244,13 +374,28 @@ window.electron.getCurrentUser((currentUser) => {
             courseHandler.btnPurchaseCourse.innerHTML = "Download Receipt"
             courseHandler.btnPurchaseCourse.addEventListener("click", () => courseHandler.downloadPurchaseReceipt(jsonResponse.purchaseData[0].receipt));
             //If course is purchased then check for additional Information
-            if(currentUser.user_secondary_phone =='' || currentUser.user_address == ''){
-                courseHandler.containerAdditionalDetails.style.display = 'block';
-                courseHandler.SecondaryPhone.value = currentUser.user_secondary_phone;
-                courseHandler.Address.value = currentUser.user_address;
+            courseHandler.Username.value = currentUser.user_name;
+            courseHandler.Branch.value = (!!currentUser.user_branch) ? currentUser.user_branch : 'Waghodia Road';
+            courseHandler.Phone.value = currentUser.user_phone;
+            courseHandler.secondaryPhone.value = currentUser.user_secondary_phone;
+            courseHandler.Address.value = currentUser.user_address;
 
+            courseHandler.containerUsername.style.display = (!!currentUser.user_name) ? 'none' : 'block';
+            courseHandler.counterUserName.style.display = (!!currentUser.user_name) ? 'none' : 'block';
+            courseHandler.containerBranch.style.display = (!!currentUser.user_branch) ? 'none' : (jsonResponse.purchaseData[0].study_mode == 'App' ? 'none' : 'flex');
+            courseHandler.containerPhone.style.display = (!!currentUser.user_phone) ? 'none' : 'block';
+            courseHandler.counterPhone.style.display = (!!currentUser.user_name) ? 'none' : 'block';
+            courseHandler.containerSecondaryPhone.style.display = (!!currentUser.user_secondary_phone) ? 'none' : 'block';
+            courseHandler.counterSecondaryPhone.style.display = (!!currentUser.user_name) ? 'none' : 'block';
+            courseHandler.containerAddress.style.display = (!!currentUser.user_address) ? 'none' : 'block';
+            courseHandler.counterAddress.style.display = (!!currentUser.user_name) ? 'none' : 'block';
+
+
+            if (courseHandler.containerUsername.style.display == 'block' || courseHandler.containerBranch.style.display == 'block' ||
+                courseHandler.containerPhone.style.display == 'block' || courseHandler.containerSecondaryPhone.style.display == 'block' ||
+                courseHandler.containerAddress.style.display == 'block') {
+                courseHandler.containerAdditionalDetails.style.display = 'block'
             }
-
         }
         else {
             //User Has Not Purchased This Course
@@ -373,11 +518,11 @@ courseHandler.showPurchaseInfo = (purchaseData) => {
 }
 
 //Start purchase Flow
-courseHandler.openPurchaseForm = () => 
+courseHandler.openPurchaseForm = () =>
     window.location.href = `purchaseForm.html?${new URLSearchParams(courseHandler.course).toString()}`;
 
 
-courseHandler.downloadPurchaseReceipt = (receipt) => 
+courseHandler.downloadPurchaseReceipt = (receipt) =>
     window.electron.downloadPurchaseReceipt(receipt);
 
 
