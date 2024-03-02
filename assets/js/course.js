@@ -80,7 +80,6 @@ courseHandler.secondaryPhone.addEventListener("input", (e) => {
 
 //Update Details Required Modal Feild Validation
 courseHandler.validateInputs = () => {
-    window.electron.getCurrentUser((currentUser) => {
         // Reset previous validation messages
         courseHandler.validationUsername.style.display = "none";
         courseHandler.validationAddress.style.display = "none";
@@ -93,45 +92,25 @@ courseHandler.validateInputs = () => {
         courseHandler.secondaryPhone.classList.remove('invalid_edittext');
 
 
-        if (courseHandler.Username.value) {
-            if (currentUser.user_name == courseHandler.Username.value || courseHandler.Username.value.length == 0) {
-                return true;
-            }
-            else if (courseHandler.Username.value.length < 3) {
+        if (courseHandler.Username.value.length < 3) {
                 courseHandler.setInputError('Please enter Valid Username', courseHandler.validationUsername, courseHandler.Username)
                 return false;
             }
-        }
-        if (courseHandler.Phone.value) {
-            if (currentUser.user_phone == courseHandler.Phone.value || courseHandler.Phone.value.length == 0) {
-                return true;
-            }
-            else if (courseHandler.Phone.value.length < 10) {
+        
+        if (courseHandler.Phone.value.length < 10) {
                 courseHandler.setInputError('Please enter valid phone number', courseHandler.validationPhone, courseHandler.Phone);
                 return false;
             }
-        }
-        if (courseHandler.secondaryPhone.value) {
-            if (currentUser.user_secondary_phone == courseHandler.secondaryPhone.value || courseHandler.secondaryPhone.value.length == 0) {
-                return true;
-            }
-            else if (courseHandler.secondaryPhone.value.length < 10) {
-                courseHandler.setInputError('Please enter valid secondary phone number', courseHandler.validationSecondaryPhone, courseHandler.secondaryPhone);
+        if (courseHandler.secondaryPhone.value.length > 0 && courseHandler.secondaryPhone.value.length < 10) {
+                courseHandler.setInputError('Please enter valid phone number', courseHandler.validationSecondaryPhone, courseHandler.secondaryPhone);
                 return false;
             }
-        }
-        if (courseHandler.Address.value) {
-            if (currentUser.user_address == courseHandler.Address.value || courseHandler.Address.value.length == 0) {
-                return true;
-            }
-            else if (!/^[a-zA-Z0-9\s,.'-]+$/.test(courseHandler.Address.value)) {
+        
+        if (!/^[a-zA-Z0-9\s,.'-]+$/.test(courseHandler.Address.value)) {
                 courseHandler.setInputError('Please enter Valid Address', courseHandler.validationAddress, courseHandler.Address)
                 return false;
             }
-        }
-
-    });
-    return true;
+        return true;
 }
 courseHandler.setInputError = (error, validationArea, invalid_USERNAME_PHONE_ADDRESS) => {
     validationArea.innerHTML = error;
@@ -146,10 +125,11 @@ courseHandler.btnUpdateDetails.addEventListener("click", (e) => {
             requestHelper.requestServer({
                 requestPath: "userUpdateProfile.php", requestMethod: "POST", requestPostBody: {
                     user_email: currentUser.user_email,
-                    user_name: courseHandler.Username.value,
+                    user_full_name: courseHandler.Username.value,
                     user_phone: courseHandler.Phone.value,
                     user_secondary_phone: courseHandler.secondaryPhone.value,
                     user_address: courseHandler.Address.value,
+                    ask_extra_info: false,
                 }
             }).then(response => response.json()).then(jsonResponse => {
                 console.log(jsonResponse);
@@ -374,26 +354,15 @@ window.electron.getCurrentUser((currentUser) => {
             courseHandler.btnPurchaseCourse.innerHTML = "Download Receipt"
             courseHandler.btnPurchaseCourse.addEventListener("click", () => courseHandler.downloadPurchaseReceipt(jsonResponse.purchaseData[0].receipt));
             //If course is purchased then check for additional Information
-            courseHandler.Username.value = currentUser.user_name;
+            courseHandler.Username.value = currentUser.user_full_name;
             courseHandler.Branch.value = (!!currentUser.user_branch) ? currentUser.user_branch : 'Waghodia Road';
             courseHandler.Phone.value = currentUser.user_phone;
             courseHandler.secondaryPhone.value = currentUser.user_secondary_phone;
             courseHandler.Address.value = currentUser.user_address;
 
-            courseHandler.containerUsername.style.display = (!!currentUser.user_name) ? 'none' : 'block';
-            courseHandler.counterUserName.style.display = (!!currentUser.user_name) ? 'none' : 'block';
             courseHandler.containerBranch.style.display = (!!currentUser.user_branch) ? 'none' : (jsonResponse.purchaseData[0].study_mode == 'App' ? 'none' : 'flex');
-            courseHandler.containerPhone.style.display = (!!currentUser.user_phone) ? 'none' : 'block';
-            courseHandler.counterPhone.style.display = (!!currentUser.user_name) ? 'none' : 'block';
-            courseHandler.containerSecondaryPhone.style.display = (!!currentUser.user_secondary_phone) ? 'none' : 'block';
-            courseHandler.counterSecondaryPhone.style.display = (!!currentUser.user_name) ? 'none' : 'block';
-            courseHandler.containerAddress.style.display = (!!currentUser.user_address) ? 'none' : 'block';
-            courseHandler.counterAddress.style.display = (!!currentUser.user_name) ? 'none' : 'block';
-
-
-            if (courseHandler.containerUsername.style.display == 'block' || courseHandler.containerBranch.style.display == 'block' ||
-                courseHandler.containerPhone.style.display == 'block' || courseHandler.containerSecondaryPhone.style.display == 'block' ||
-                courseHandler.containerAddress.style.display == 'block') {
+            
+            if(jsonResponse.userAccData.ask_extra_info == "1"){
                 courseHandler.containerAdditionalDetails.style.display = 'block'
             }
         }
